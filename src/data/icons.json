@@ -2,152 +2,151 @@
     {
         "id": "angular",
         "name": "Angular",
-        "url": "../../public/iconos/Angular.svg"
+        "url": "/iconos/Angular.svg"
     },
     {
         "id": "astro",
         "name": "Astro",
-        "url": "../../public/iconos/Astro.svg"
-    },
-    {
-        "id": "mysql",
-        "name": "MySQL",
-        "url": "../../public/iconos/Mysql.svg"
-    },
-    {
-        "id": "csharp",
-        "name": "C#",
-        "url": "../../public/iconos/Csharp.svg"
-    },
-    {
-        "id": "cplusplus",
-        "name": "C++",
-        "url": "../../public/iconos/Cplusplus.svg"
-    },
-    {
-        "id": "css",
-        "name": "CSS",
-        "url": "../../public/iconos/Css.svg"
-    },
-    {
-        "id": "docker",
-        "name": "Docker",
-        "url": "../../public/iconos/Docker.svg"
-    },
-    {
-        "id": "git",
-        "name": "Git",
-        "url": "../../public/iconos/Git.svg"
-    },
-    {
-        "id": "github",
-        "name": "GitHub",
-        "url": "../../public/iconos/Github.svg"
-    },
-    {
-        "id": "gitlab",
-        "name": "GitLab",
-        "url": "../../public/iconos/Gitlab.svg"
-    },
-    {
-        "id": "go",
-        "name": "GO",
-        "url": "../../public/iconos/Go.svg"
-    },
-    {
-        "id": "html",
-        "name": "HTML",
-        "url": "../../public/iconos/Html.svg"
-    },
-    {
-        "id": "java",
-        "name": "Java",
-        "url": "../../public/iconos/Java.svg"
-    },
-    {
-        "id": "javascript",
-        "name": "JavaScript",
-        "url": "../../public/iconos/Javascript.svg"
-    },
-    {
-        "id": "jquery",
-        "name": "jQuery",
-        "url": "../../public/iconos/Jquery.svg"
-    },
-    {
-        "id": "php",
-        "name": "PHP",
-        "url": "../../public/iconos/Php.svg"
-    },
-    {
-        "id": "python",
-        "name": "Python",
-        "url": "../../public/iconos/Python.svg"
-    },
-    {
-        "id": "typescript",
-        "name": "TypeScript",
-        "url": "../../public/iconos/Typescript.svg"
-    },
-    {
-        "id": "rust",
-        "name": "Rust",
-        "url": "../../public/iconos/Rust.svg"
-    },
-    {
-        "id": "swift",
-        "name": "Swift",
-        "url": "../../public/iconos/Swift.svg"
-    },
-    
-    {
-        "id": "kotlin",
-        "name": "Kotlin",
-        "url": "../../public/iconos/Kotlin.svg"
-    },
-    {
-        "id": "laravel",
-        "name": "Laravel",
-        "url": "../../public/iconos/Laravel.svg"
-    },
-    {
-        "id": "mongodb",
-        "name": "MongoDB",
-        "url": "../../public/iconos/Mongodb.svg"
+        "url": "/iconos/Astro.svg"
     },
     {
         "id": "bootstrap",
         "name": "Bootstrap",
-        "url": "../../public/iconos/Bootstrap.svg"
+        "url": "/iconos/Bootstrap.svg"
+    },
+    {
+        "id": "cplusplus",
+        "name": "C++",
+        "url": "/iconos/Cplusplus.svg"
+    },
+    {
+        "id": "csharp",
+        "name": "C#",
+        "url": "/iconos/Csharp.svg"
+    },
+    {
+        "id": "css",
+        "name": "CSS",
+        "url": "/iconos/Css.svg"
+    },
+    {
+        "id": "docker",
+        "name": "Docker",
+        "url": "/iconos/Docker.svg"
+    },
+    {
+        "id": "git",
+        "name": "Git",
+        "url": "/iconos/Git.svg"
+    },
+    {
+        "id": "github",
+        "name": "GitHub",
+        "url": "/iconos/GitHub.svg"
+    },
+    {
+        "id": "gitlab",
+        "name": "GitLab",
+        "url": "/iconos/GitLab.svg"
+    },
+    {
+        "id": "go",
+        "name": "GO",
+        "url": "/iconos/GO.svg"
+    },
+    {
+        "id": "html",
+        "name": "HTML",
+        "url": "/iconos/html.svg"
+    },
+    {
+        "id": "java",
+        "name": "Java",
+        "url": "/iconos/Java.svg"
+    },
+    {
+        "id": "javascript",
+        "name": "JavaScript",
+        "url": "/iconos/JavaScript.svg"
+    },
+    {
+        "id": "jquery",
+        "name": "jQuery",
+        "url": "/iconos/jQuery.svg"
+    },
+    {
+        "id": "kotlin",
+        "name": "Kotlin",
+        "url": "/iconos/Kotlin.svg"
+    },
+    {
+        "id": "laravel",
+        "name": "Laravel",
+        "url": "/iconos/Laravel.svg"
+    },
+    {
+        "id": "mongodb",
+        "name": "MongoDB",
+        "url": "/iconos/MongoDB.svg"
+    },
+    {
+        "id": "mysql",
+        "name": "MySQL",
+        "url": "/iconos/MySQL.svg"
     },
     {
         "id": "nodejs",
         "name": "Node.js",
-        "url": "../../public/iconos/NodeJs.svg"
+        "url": "/iconos/NodeJs.svg"
     },
     {
-        "id": "ruby",
-        "name": "Ruby",
-        "url": "../../public/iconos/Ruby.svg"
+        "id": "php",
+        "name": "PHP",
+        "url": "/iconos/Php.svg"
     },
     {
-        "id": "tailwindcss",
-        "name": "Tailwind CSS",
-        "url": "../../public/iconos/Tailwindcss.svg"
+        "id": "python",
+        "name": "Python",
+        "url": "/iconos/Python.svg"
     },
     {
         "id": "react",
         "name": "React",
-        "url": "../../public/iconos/React.svg"
+        "url": "/iconos/React.svg"
+    },
+    {
+        "id": "ruby",
+        "name": "Ruby",
+        "url": "/iconos/ruby.svg"
+    },
+    {
+        "id": "rust",
+        "name": "Rust",
+        "url": "/iconos/Rust.svg"
+    },
+    {
+        "id": "swift",
+        "name": "Swift",
+        "url": "/iconos/Swift.svg"
+    },
+    {
+        "id": "tailwindcss",
+        "name": "Tailwind CSS",
+        "url": "/iconos/TailwindCSS.svg"
+    },
+    {
+        "id": "typescript",
+        "name": "TypeScript",
+        "url": "/iconos/TypeScript.svg"
     },
     {
         "id": "visualstudio",
         "name": "Visual Studio",
-        "url": "../../public/iconos/VisualStudio.svg"
+        "url": "/iconos/VisualStudio.svg"
     },
     {
         "id": "xampp",
         "name": "XAMPP",
-        "url": "../../public/iconos/Xampp.svg"
+        "url": "/iconos/Xampp.svg"
     }
 ]
