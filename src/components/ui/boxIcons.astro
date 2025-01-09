@@ -1,0 +1,33 @@
+---
+import icons from "../../data/icons.json";
+---
+
+{icons.map((icon) => (
+    <a
+      href="#hola"
+      title={`${icon.id} icon`}
+      class="w-44 h-44 bg-white/60 dark:bg-black/60 relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
+    >
+      <div class="absolute h-full w-full bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#000_50%,transparent_100%)] transition-colors"></div>
+      <div class="flex flex-col items-center justify-center z-10">
+        <i
+        class="w-16 h-16 block text-black dark:text-white/100"
+        style={{
+          maskImage: `url(${icon.url})`,
+          WebkitMaskImage: `url(${icon.url})`,
+          maskSize: "contain",
+          WebkitMaskSize: "contain",
+          backgroundColor: "currentColor",
+          maskRepeat: "no-repeat",
+          webkitMaskRepeat: "no-repeat",
+          maskPosition: "center",
+          webkitMaskPosition: "center",
+        }}
+      ></i>
+        <span class="text-black dark:text-white text-lg font-semibold mt-2">
+          {icon.name}
+        </span>
+      </div>
+    </a>
+  ))
+}

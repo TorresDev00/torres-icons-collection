@@ -1,0 +1,52 @@
+---
+import GitHub from "../../assets/icons/nav/github-fill.svg";
+import User from "../../assets/icons/nav/user.svg";
+import Torre from "../../assets/icons/torre.svg";
+import ThemeSwitch from "./ThemeSwitch.astro";
+---
+ 
+ <!-- Header -->
+  <header class="bg-transparent transition-colors duration-300">
+    <div
+      class="container max-md:max-w-[90%] mx-auto px-4 py-6 max-md:px-0 flex justify-between items-center"
+    >
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center flex-row text-gray-900 dark:text-white transition-colors"
+      >
+        <Torre class="w-10 h-10 sm:w-9 sm:h-9 text-black dark:text-white" />
+        <span class="text-4xl max-sm:text-3xl font-bold ml-2 text-black dark:text-white">
+          icons
+        </span>
+      </a>
+
+      <!-- Links -->
+      <nav class="flex items-center space-x-5 gap-y-4">
+        <a
+          href="https://github.com/TorresDev00"
+          class="text-center nav-link text-gray-950 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          aria-label="Visitar perfil de GitHub"
+          title="Visitar perfil de GitHub"
+        >
+          <GitHub class="w-7 h-7 text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-400 transition-colors" />
+        </a>
+        <a
+          href="#perfil"
+          class="text-center nav-link text-gray-950 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          aria-label="Ver portafolio personal" 
+          title="Ver portafolio personal"
+        >
+          <User class="w-7 h-7 text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-400 transition-colors" />
+        </a>
+        <a
+          href="#modo-oscuro"
+          class="text-center nav-link text-gray-950 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          aria-label="Cambiar al modo oscuro"
+          title="Cambiar al modo oscuro"
+        >
+          <ThemeSwitch/>
+        </a>
+      </nav>
+    </div>
+  </header>

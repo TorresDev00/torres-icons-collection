@@ -1,0 +1,42 @@
+---
+import GitHub from "../../assets/icons/nav/github-fill.svg";
+import Envelope from "../../assets/icons/footer/email.svg";
+const fullYear = new Date().getFullYear();
+---
+
+<footer class="bg-transparent pt-6">
+    <div class="container max-md:max-w-[90%] mx-auto px-6 py-10 md:py-8">
+      <div class="flex flex-col-reverse sm:flex-row justify-between items-center">
+        <!-- Texto de derechos reservados -->
+        <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mt-4 sm:mt-0">
+          Made with by 
+          <a
+            href="https://torresdev.com"
+            class="underline hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            TorresDev
+          </a>
+          - {fullYear}
+        </p>
+  
+        <!-- Redes sociales -->
+        <div class="flex space-x-6">
+          <a
+            href="https://github.com/TorresDev00"
+            aria-label="GitHub"
+            class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >
+            <GitHub class="w-6 h-6" />
+          </a>
+          <a
+            href="mailto:torresdev@example.com"
+            aria-label="Email"
+            class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >
+            <Envelope class="w-7 h-7" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
