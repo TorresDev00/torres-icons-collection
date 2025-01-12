@@ -1,33 +1,111 @@
 ---
 import icons from "../../data/icons.json";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "free-astro-components";
 ---
 
-{icons.map((icon) => (
-    <a
-      href="#hola"
-      title={`${icon.id} icon`}
-      class="w-44 h-44 bg-white/60 dark:bg-black/60 relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
+{
+  icons.map((icon) => (
+    <button
+      title={`${icon.id}`}
+      class="buttonIcon w-44 h-44 bg-white/60 dark:bg-black/60 relative border-2 border-slate-800 rounded-xl hover:border-slate-700 group transition-colors duration-200 flex items-center justify-center p-5 font-sans"
+      data-icon-name={icon.name}
+      data-icon-description={icon.description || "Description not available"}
+      data-icon-url={icon.url}
     >
-      <div class="absolute h-full w-full bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#000_50%,transparent_100%)] transition-colors"></div>
+      <div class="absolute h-full w-full bg-[radial-gradient(rgb(30,41,59)_1.5px,transparent_1px)] [background-size:20px_20px] [mask-image:radial-gradient(ellipse_47%_47%_at_50%_50%,#00000061_50%,transparent_100%)] transition-colors" />
       <div class="flex flex-col items-center justify-center z-10">
         <i
-        class="w-16 h-16 block text-black dark:text-white/100"
-        style={{
-          maskImage: `url(${icon.url})`,
-          WebkitMaskImage: `url(${icon.url})`,
-          maskSize: "contain",
-          WebkitMaskSize: "contain",
-          backgroundColor: "currentColor",
-          maskRepeat: "no-repeat",
-          webkitMaskRepeat: "no-repeat",
-          maskPosition: "center",
-          webkitMaskPosition: "center",
-        }}
-      ></i>
+          class="w-16 h-16 block text-black dark:text-white/100"
+          style={{
+            maskImage: `url(${icon.url})`,
+            WebkitMaskImage: `url(${icon.url})`,
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+            backgroundColor: "currentColor",
+            maskRepeat: "no-repeat",
+            webkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            webkitMaskPosition: "center",
+          }}
+        />
         <span class="text-black dark:text-white text-lg font-semibold mt-2">
           {icon.name}
         </span>
       </div>
-    </a>
+    </button>
   ))
 }
+
+<Modal id="modal-id">
+  <ModalHeader>
+    <h4 class="titleModal text-xl"></h4>
+  </ModalHeader>
+  <ModalBody>
+    <div class="flex flex-col items-center justify-center">
+      <div class="iconPreview w-full h-48 flex items-center justify-center"></div>
+
+      <h2 class="text-xl font-semibold mb-4">Description</h2>
+      <p class="descriptionModal text-lg font-semibold mt-2"></p>
+
+      <div class="flex flex-col my-10 w-full">
+        <h1 class="mr-4 text-xl font-semibold mb-4">Customize</h1>
+
+        <div class="flex w-full items-center gap-4">
+          <input id="rangeSlider" type="range" class="h-2 w-full appearance-none bg-neutral-50 focus:outline-none dark:bg-gray-500 [&::-moz-range-thumb]:size-4 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:border-none [&::-moz-range-thumb]:bg-black active:[&::-moz-range-thumb]:scale-110 [&::-moz-range-thumb]:dark:bg-white [&::-webkit-slider-thumb]:size-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:bg-black active:[&::-webkit-slider-thumb]:scale-110 [&::-webkit-slider-thumb]:dark:bg-white [&::-moz-range-thumb]:rounded-full [&::-webkit-slider-thumb]:rounded-full rounded-full" value="20" min="0" max="100" step="1" />
+          <input type="color" class="p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700" id="hs-color-input" value="#2563eb" title="Choose your color">
+        </div>
+      </div>
+
+    </div>
+  </ModalBody>
+  <ModalFooter>
+    <Button class="border-none" label="Close" data-modal-close />
+  </ModalFooter>
+</Modal>
+
+
+
+<script>
+  import { openModal } from "free-astro-components";
+  document.addEventListener("DOMContentLoaded", function () {
+    let modal = document.getElementById("modal-id");
+    let buttons = document.querySelectorAll(".buttonIcon");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", function () {
+        let iconName = button.getAttribute("data-icon-name");
+        let iconDescription = button.getAttribute("data-icon-description");
+        let iconUrl = button.getAttribute("data-icon-url");
+
+        modal.querySelector(".titleModal").textContent = iconName;
+
+        // Renderizar el SVG en el modal
+        const svgContainer = modal?.querySelector(".iconPreview");
+        if (svgContainer && iconUrl) {
+          fetch(iconUrl)
+            .then((response) => response.text())
+            .then((svg) => {
+              svgContainer.innerHTML = svg;
+              const svgElement = svgContainer.querySelector("svg");
+              if (svgElement) {
+                svgElement.classList.add("fill-black", "dark:fill-white");
+                svgElement.setAttribute("width", "100%");
+                svgElement.setAttribute("height", "100%");
+              }
+            });
+        }
+
+        // Establecer la descripción
+        modal.querySelector(".descriptionModal").textContent = iconDescription;
+
+        openModal(modal);
+      });
+    });
+  });
+</script>

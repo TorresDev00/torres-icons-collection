@@ -2,151 +2,181 @@
     {
         "id": "angular",
         "name": "Angular",
-        "url": "/iconos/Angular.svg"
+        "url": "/iconos/Angular.svg",
+        "description": "A TypeScript-based open-source web application framework developed by Google for building dynamic and modern web applications."
     },
     {
         "id": "astro",
         "name": "Astro",
-        "url": "/iconos/Astro.svg"
+        "url": "/iconos/Astro.svg",
+        "description": "A modern static site builder designed for creating fast, content-focused websites with less JavaScript."
     },
     {
         "id": "bootstrap",
         "name": "Bootstrap",
-        "url": "/iconos/Bootstrap.svg"
+        "url": "/iconos/Bootstrap.svg",
+        "description": "The world’s most popular CSS framework for developing responsive and mobile-first websites."
     },
     {
         "id": "cplusplus",
         "name": "C++",
-        "url": "/iconos/Cplusplus.svg"
+        "url": "/iconos/Cplusplus.svg",
+        "description": "A high-performance programming language widely used for system-level programming, game development, and real-time applications."
     },
     {
         "id": "csharp",
         "name": "C#",
-        "url": "/iconos/Csharp.svg"
+        "url": "/iconos/Csharp.svg",
+        "description": "A modern, object-oriented programming language developed by Microsoft, primarily used for developing Windows applications."
     },
     {
         "id": "css",
         "name": "CSS",
-        "url": "/iconos/Css.svg"
+        "url": "/iconos/Css.svg",
+        "description": "A style sheet language used to describe the presentation of a document written in HTML or XML."
     },
     {
         "id": "docker",
         "name": "Docker",
-        "url": "/iconos/Docker.svg"
+        "url": "/iconos/Docker.svg",
+        "description": "An open-source platform for developing, shipping, and running applications inside lightweight, portable containers."
     },
     {
         "id": "git",
         "name": "Git",
-        "url": "/iconos/Git.svg"
+        "url": "/iconos/Git.svg",
+        "description": "A free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
     },
     {
         "id": "github",
         "name": "GitHub",
-        "url": "/iconos/GitHub.svg"
+        "url": "/iconos/GitHub.svg",
+        "description": "A code hosting platform for version control and collaboration, built around Git."
     },
     {
         "id": "gitlab",
         "name": "GitLab",
-        "url": "/iconos/GitLab.svg"
+        "url": "/iconos/GitLab.svg",
+        "description": "A DevOps platform that provides a complete CI/CD toolchain for software development and deployment."
     },
     {
         "id": "go",
         "name": "GO",
-        "url": "/iconos/GO.svg"
+        "url": "/iconos/GO.svg",
+        "description": "An open-source programming language created by Google, known for its simplicity and performance in server-side development."
     },
     {
         "id": "html",
         "name": "HTML",
-        "url": "/iconos/html.svg"
+        "url": "/iconos/html.svg",
+        "description": "The standard markup language for creating and structuring content on the web."
     },
     {
         "id": "java",
         "name": "Java",
-        "url": "/iconos/Java.svg"
+        "url": "/iconos/Java.svg",
+        "description": "A high-level, versatile programming language widely used for web, mobile, and enterprise applications."
     },
     {
         "id": "javascript",
         "name": "JavaScript",
-        "url": "/iconos/JavaScript.svg"
+        "url": "/iconos/JavaScript.svg",
+        "description": "A versatile scripting language that enables dynamic and interactive content on websites."
     },
     {
         "id": "jquery",
         "name": "jQuery",
-        "url": "/iconos/jQuery.svg"
+        "url": "/iconos/jQuery.svg",
+        "description": "A fast, small, and feature-rich JavaScript library that simplifies HTML document traversal and manipulation."
     },
     {
         "id": "kotlin",
         "name": "Kotlin",
-        "url": "/iconos/Kotlin.svg"
+        "url": "/iconos/Kotlin.svg",
+        "description": "A modern programming language fully interoperable with Java, widely used for Android development."
     },
     {
         "id": "laravel",
         "name": "Laravel",
-        "url": "/iconos/Laravel.svg"
+        "url": "/iconos/Laravel.svg",
+        "description": "A PHP framework designed for web application development with an elegant syntax and robust features."
     },
     {
         "id": "mongodb",
         "name": "MongoDB",
-        "url": "/iconos/MongoDB.svg"
+        "url": "/iconos/MongoDB.svg",
+        "description": "A NoSQL database designed for scalability, flexibility, and ease of development."
     },
     {
         "id": "mysql",
         "name": "MySQL",
-        "url": "/iconos/MySQL.svg"
+        "url": "/iconos/MySQL.svg",
+        "description": "An open-source relational database management system commonly used in web applications."
     },
     {
         "id": "nodejs",
         "name": "Node.js",
-        "url": "/iconos/NodeJs.svg"
+        "url": "/iconos/NodeJs.svg",
+        "description": "A JavaScript runtime built on Chrome's V8 engine for building fast, scalable server-side applications."
     },
     {
         "id": "php",
         "name": "PHP",
-        "url": "/iconos/Php.svg"
+        "url": "/iconos/Php.svg",
+        "description": "A popular server-side scripting language designed for web development."
     },
     {
         "id": "python",
         "name": "Python",
-        "url": "/iconos/Python.svg"
+        "url": "/iconos/Python.svg",
+        "description": "A versatile, high-level programming language known for its simplicity and wide range of libraries."
     },
     {
         "id": "react",
         "name": "React",
-        "url": "/iconos/React.svg"
+        "url": "/iconos/React.svg",
+        "description": "A JavaScript library for building user interfaces, developed and maintained by Facebook."
     },
     {
         "id": "ruby",
         "name": "Ruby",
-        "url": "/iconos/ruby.svg"
+        "url": "/iconos/ruby.svg",
+        "description": "A dynamic, open-source programming language focused on simplicity and productivity."
     },
     {
         "id": "rust",
         "name": "Rust",
-        "url": "/iconos/Rust.svg"
+        "url": "/iconos/Rust.svg",
+        "description": "A programming language focused on performance, safety, and concurrency, ideal for system-level programming."
     },
     {
         "id": "swift",
         "name": "Swift",
-        "url": "/iconos/Swift.svg"
+        "url": "/iconos/Swift.svg",
+        "description": "A programming language developed by Apple for building apps on iOS, macOS, and other Apple platforms."
     },
     {
         "id": "tailwindcss",
         "name": "Tailwind CSS",
-        "url": "/iconos/TailwindCSS.svg"
+        "url": "/iconos/TailwindCSS.svg",
+        "description": "A utility-first CSS framework for creating custom designs directly in the markup."
     },
     {
         "id": "typescript",
         "name": "TypeScript",
-        "url": "/iconos/TypeScript.svg"
+        "url": "/iconos/TypeScript.svg",
+        "description": "A typed superset of JavaScript that compiles to plain JavaScript, improving development efficiency and code quality."
     },
     {
         "id": "visualstudio",
         "name": "Visual Studio",
-        "url": "/iconos/VisualStudio.svg"
+        "url": "/iconos/VisualStudio.svg",
+        "description": "An integrated development environment (IDE) from Microsoft for developing applications and services."
     },
     {
         "id": "xampp",
         "name": "XAMPP",
-        "url": "/iconos/Xampp.svg"
+        "url": "/iconos/Xampp.svg",
+        "description": "A free and open-source cross-platform web server solution stack package for PHP development."
     }
 ]
