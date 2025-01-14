@@ -48,7 +48,8 @@ import {
   </ModalHeader>
   <ModalBody>
     <div class="flex flex-col items-center justify-center">
-      <div class="iconPreview w-full h-48 flex items-center justify-center"></div>
+      <div class="iconPreview w-full h-60 flex items-center justify-center">
+      </div>
 
       <h2 class="text-xl font-semibold mb-4">Description</h2>
       <p class="descriptionModal text-lg font-semibold mt-2"></p>
@@ -57,55 +58,207 @@ import {
         <h1 class="mr-4 text-xl font-semibold mb-4">Customize</h1>
 
         <div class="flex w-full items-center gap-4">
-          <input id="rangeSlider" type="range" class="h-2 w-full appearance-none bg-neutral-50 focus:outline-none dark:bg-gray-500 [&::-moz-range-thumb]:size-4 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:border-none [&::-moz-range-thumb]:bg-black active:[&::-moz-range-thumb]:scale-110 [&::-moz-range-thumb]:dark:bg-white [&::-webkit-slider-thumb]:size-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:bg-black active:[&::-webkit-slider-thumb]:scale-110 [&::-webkit-slider-thumb]:dark:bg-white [&::-moz-range-thumb]:rounded-full [&::-webkit-slider-thumb]:rounded-full rounded-full" value="20" min="0" max="100" step="1" />
-          <input type="color" class="p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700" id="hs-color-input" value="#2563eb" title="Choose your color">
+          <input
+            id="rangeSlider"
+            type="range"
+            class="h-2 w-full appearance-none bg-neutral-50 focus:outline-none dark:bg-gray-500 [&::-moz-range-thumb]:size-4 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:border-none [&::-moz-range-thumb]:bg-black active:[&::-moz-range-thumb]:scale-110 [&::-moz-range-thumb]:dark:bg-white [&::-webkit-slider-thumb]:size-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:bg-black active:[&::-webkit-slider-thumb]:scale-110 [&::-webkit-slider-thumb]:dark:bg-white [&::-moz-range-thumb]:rounded-full [&::-webkit-slider-thumb]:rounded-full rounded-full"
+            value="100"
+            min="10"
+            max="250"
+            step="1"
+          />
+          <span
+            id="rangeValue"
+            class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+            >100px</span
+          >
+          <input
+            type="color"
+            class="p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700"
+            id="hs-color-input"
+            value="#ffffff"
+            title="Choose your color"
+          />
         </div>
       </div>
-
     </div>
   </ModalBody>
   <ModalFooter>
-    <Button class="border-none" label="Close" data-modal-close />
+    <Button class="export-button" label="Export SVG" />
+    <Button class="close border-none" label="Close" />
   </ModalFooter>
 </Modal>
 
-
-
 <script>
-  import { openModal } from "free-astro-components";
+  import { openModal, closeModal } from "free-astro-components";
+
   document.addEventListener("DOMContentLoaded", function () {
     let modal = document.getElementById("modal-id");
-    let buttons = document.querySelectorAll(".buttonIcon");
+    let colorInput = document.getElementById("hs-color-input");
+    let rangeSlider = document.getElementById("rangeSlider");
+    let rangeValue = document.getElementById("rangeValue");
+    const closeButton = modal?.querySelector(".close");
+    const closeModalButton = modal?.querySelector(".ac-modal-close");
+    const buttons = document.querySelectorAll(".buttonIcon");
+    const exportButton = modal?.querySelector(".export-button");
 
-    buttons.forEach((button) => {
-      button.addEventListener("click", function () {
-        let iconName = button.getAttribute("data-icon-name");
-        let iconDescription = button.getAttribute("data-icon-description");
-        let iconUrl = button.getAttribute("data-icon-url");
+    //Valores predeterminados
+    const defaultColor = "#ffffff";
+    const defaultSize = 100;
 
-        modal.querySelector(".titleModal").textContent = iconName;
+    function resetModalValues() {
+      colorInput.value = defaultColor;
+      rangeSlider.value = defaultSize;
+      rangeValue.textContent = `${defaultSize}px`;
 
-        // Renderizar el SVG en el modal
-        const svgContainer = modal?.querySelector(".iconPreview");
-        if (svgContainer && iconUrl) {
-          fetch(iconUrl)
-            .then((response) => response.text())
-            .then((svg) => {
-              svgContainer.innerHTML = svg;
-              const svgElement = svgContainer.querySelector("svg");
-              if (svgElement) {
-                svgElement.classList.add("fill-black", "dark:fill-white");
-                svgElement.setAttribute("width", "100%");
-                svgElement.setAttribute("height", "100%");
+      const svgContainer = modal.querySelector(".iconPreview");
+      const svgElement = svgContainer?.querySelector("svg");
+
+      if (svgElement) {
+        svgElement.style.fill = defaultColor;
+        svgElement.style.width = `${defaultSize}px`;
+        svgElement.style.height = `${defaultSize}px`;
+      }
+    }
+
+    // Función para cargar y renderizar el ícono en el modal
+    async function loadIcon(iconUrl, svgContainer) {
+      svgContainer.innerHTML = `
+        <div
+          class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white"
+          role="status">
+          <span
+            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+            >Loading...</span>
+        </div>
+      `;
+      try {
+        const response = await fetch(iconUrl);
+        const svg = await response.text();
+        svgContainer.innerHTML = svg;
+
+        let svgElement = svgContainer.querySelector("svg");
+        if (svgElement) {
+          svgElement.classList.add("fill-black", "dark:fill-white");
+          svgElement.style.width = `${rangeSlider.value}px`;
+          svgElement.style.height = `${rangeSlider.value}px`;
+        }
+      } catch (error) {
+        console.error("Error loading icon:", error);
+        svgContainer.innerHTML = `<div class="text-red-500">Error loading icon</div>`;
+      }
+    }
+
+    // Funcion para actualizar color del SVG
+    function updateIconColor(svgContainer) {
+      let svgElment = svgContainer.querySelector("svg");
+      if (svgElment) {
+        svgElment.style.fill = colorInput.value;
+      }
+    }
+
+    // Función para actualizar el valor del tamaño del icono
+    function updateIconSize(svgContainer) {
+      let svgElment = svgContainer.querySelector("svg");
+      if (svgElment) {
+        svgElment.style.width = `${rangeSlider.value}px`;
+        svgElment.style.height = `${rangeSlider.value}px`;
+      }
+      rangeValue.textContent = `${rangeSlider.value}px`;
+    }
+
+    function exportSVG() {
+      const svgContainer = modal.querySelector(".iconPreview");
+      const svgElement = svgContainer?.querySelector("svg");
+      const iconName = document.querySelector(".titleModal")?.textContent;
+
+      if (svgElement) {
+        // 1. Eliminar las clases
+        svgElement.removeAttribute("class");
+        svgElement.querySelectorAll("*").forEach((child) => {
+          child.removeAttribute("class");
+        });
+
+        // 2. Convertir estilos en atributos de presentación
+        function convertStylesToAttributes(element) {
+          const style = element.getAttribute("style");
+          if (style) {
+            const styleProperties = style.split(";").map((s) => s.trim());
+            styleProperties.forEach((property) => {
+              const [key, value] = property.split(":").map((p) => p.trim());
+              if (key && value) {
+                switch (key) {
+                  case "fill":
+                  case "stroke":
+                  case "width":
+                  case "height":
+                  case "stroke-width":
+                    element.setAttribute(key, value);
+                    break;
+                  // Agrega más propiedades según las necesidades
+                }
               }
             });
+            element.removeAttribute("style"); // Eliminar el atributo `style`
+          }
         }
 
-        // Establecer la descripción
+        convertStylesToAttributes(svgElement);
+        svgElement.querySelectorAll("*").forEach(convertStylesToAttributes);
+
+        // 3. Serializar y exportar el SVG
+        const svgData = new XMLSerializer().serializeToString(svgElement);
+        const blob = new Blob([svgData], {
+          type: "image/svg+xml;charset=utf-8",
+        });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${iconName}.svg`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } else {
+        console.error("No SVG element found for export.");
+      }
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", async function () {
+        const iconName = button.getAttribute("data-icon-name");
+        const iconDescription = button.getAttribute("data-icon-description");
+        const iconUrl = button.getAttribute("data-icon-url");
+
+        modal.querySelector(".titleModal").textContent = iconName;
         modal.querySelector(".descriptionModal").textContent = iconDescription;
 
+        const svgContainer = modal.querySelector(".iconPreview");
+        if (svgContainer && iconUrl) {
+          await loadIcon(iconUrl, svgContainer);
+          colorInput?.addEventListener("input", () => {
+            updateIconColor(svgContainer);
+          });
+          rangeSlider?.addEventListener("input", () => {
+            updateIconSize(svgContainer);
+          });
+        }
         openModal(modal);
       });
+    });
+
+    exportButton?.addEventListener("click", exportSVG);
+
+    // Eventos para cerrar el modal y restaurar valores
+    closeButton?.addEventListener("click", () => {
+      resetModalValues();
+      closeModal(modal);
+    });
+
+    closeModalButton?.addEventListener("click", () => {
+      resetModalValues();
+      closeModal(modal);
     });
   });
 </script>
